@@ -23,19 +23,6 @@ export async function loadPost(id: string): Promise<Post | null> {
   return post;
 }
 
-/* export async function listPosts(): Promise<Post[]> {
-  const posts = [];
-  for await (const entry of Deno.readDir("./content/posts")) {
-    const { name } = entry;
-    const [id] = name.split(".");
-    const post = await loadPost(id);
-    if (!post) continue;
-    posts.push(post);
-  }
-  return posts;
-}
- */
-
 export async function listPosts(): Promise<Post[]> {
   const promises = [];
   for await (const entry of Deno.readDir("./content/posts")) {
